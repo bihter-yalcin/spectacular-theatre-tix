@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: spectacular-theatre-tix
+  config:
+    on-profiles: production
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: jdbc:postgresql://localhost:5432/spectacular-theatre-tix
+    username: dbUser
+    password: password
+
+
+server:
+  port: 8085
+
