@@ -8,14 +8,18 @@ import java.sql.Timestamp
 data class TicketEntity(
 
     @Id
+    @Column(name="ticketId")
     var id: String,
 
     @ManyToOne
+    @JoinColumn(name = "showId")
     var showEntity: ShowEntity,
 
+    @Column(name="bookDate")
     var bookDate: Timestamp,
 
     @ManyToOne
+    @JoinColumn(name = "customerId")
     var customer: CustomerEntity,
 
     @Version

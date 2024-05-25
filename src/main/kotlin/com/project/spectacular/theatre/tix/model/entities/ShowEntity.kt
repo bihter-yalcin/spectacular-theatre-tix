@@ -1,20 +1,22 @@
 package com.project.spectacular.theatre.tix.model.entities
 
 import com.project.spectacular.theatre.tix.model.enums.ShowType
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.Id
-import jakarta.persistence.Table
+import jakarta.persistence.*
 
 @Entity
 @Table(name = "shows")
 data class ShowEntity(
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "showId")
     var id: Long,
     var name: String,
     var writer: String,
+
+    @Enumerated(EnumType.STRING)
     var type: ShowType,
+
     var totalSeats: Int,
+
     var availableSeats: Int
 )
