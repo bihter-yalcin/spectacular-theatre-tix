@@ -1,5 +1,6 @@
 package com.project.spectacular.theatre.tix.service
 
+import com.project.spectacular.theatre.tix.model.dtos.TicketDTO
 import com.project.spectacular.theatre.tix.model.entities.CustomerEntity
 import com.project.spectacular.theatre.tix.model.entities.ShowEntity
 import com.project.spectacular.theatre.tix.model.entities.TicketEntity
@@ -14,6 +15,14 @@ class TicketService {
     private lateinit var ticketRepository: TicketRepository
     private lateinit var showRepository: ShowRepository
     private lateinit var customerRepository: CustomerRepository
+
+    fun getTicket(ticketId: String): TicketDTO {
+        val ticket = ticketRepository.findById(ticketId)
+        if (ticket.isPresent)
+            return ticket.get().toTicketDTO()
+        else
+            throw Exception("No such ticket with id $ticket:")
+    }
 
     @Transactional
     fun bookTicket(showId: Long, customerId: String) {
