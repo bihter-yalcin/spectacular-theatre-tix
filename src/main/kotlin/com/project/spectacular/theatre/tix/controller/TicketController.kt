@@ -1,16 +1,22 @@
 package com.project.spectacular.theatre.tix.controller
 
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import com.project.spectacular.theatre.tix.model.dtos.TicketDTO
+import com.project.spectacular.theatre.tix.service.TicketService
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/tickets")
 class TicketController {
 
-    @PostMapping
-    fun bookTicket(){
+    private lateinit var service: TicketService
 
+    @GetMapping("/{ticketId}")
+    fun getTicket(@PathVariable ticketId: String): TicketDTO {
+        return service.getTicket(ticketId)
+    }
+
+    @PostMapping
+    fun bookTicket(showId: Long, customerId: String) {
+        return service.bookTicket(showId, customerId)
     }
 }
