@@ -19,4 +19,10 @@ data class ShowEntity(
     var totalSeats: Int,
 
     var availableSeats: Int
-)
+) {
+    fun decreaseAvailableSeat() {
+        if (this.availableSeats > 0)
+            this.availableSeats -= 1
+        else throw Exception("No available seats for show: ${this.name}:")
+    }
+}
