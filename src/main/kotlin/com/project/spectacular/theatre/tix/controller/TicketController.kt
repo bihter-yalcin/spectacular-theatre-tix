@@ -16,7 +16,7 @@ class TicketController {
     }
 
     @PostMapping
-    fun bookTicket(showId: Long, customerId: String) {
+    fun bookTicket(@RequestBody showId: Long, customerId: String) {
         return service.bookTicket(showId, customerId)
     }
 }
