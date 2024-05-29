@@ -1,10 +1,29 @@
 package com.project.spectacular.theatre.tix.controller
 
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import com.project.spectacular.theatre.tix.model.dtos.CustomerDTO
+import com.project.spectacular.theatre.tix.service.CustomerService
+import com.project.spectacular.theatre.tix.service.ShowService
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/customers")
 class CustomerController {
 
+    @Autowired
+    private lateinit var service: CustomerService
+
+    @GetMapping("/{customerId}")
+    fun getCustomer(@PathVariable customerId: String): CustomerDTO {
+        return service.getCustomer(customerId)
+    }
+
+    @PostMapping
+    fun createCustomer(
+        @RequestBody
+        name: String,
+        surname: String,
+    ) {
+        return service.createCustomer(name, surname)
+    }
 }

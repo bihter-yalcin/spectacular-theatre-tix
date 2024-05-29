@@ -1,5 +1,6 @@
 package com.project.spectacular.theatre.tix.model.entities
 
+import com.project.spectacular.theatre.tix.model.dtos.CustomerDTO
 import com.project.spectacular.theatre.tix.model.enums.Tier
 import jakarta.persistence.*
 import java.util.*
@@ -31,5 +32,9 @@ data class CustomerEntity(
         fun create(name: String, surname: String): CustomerEntity {
             return CustomerEntity(UUID.randomUUID().toString(), name, surname, Tier.BRONZE, 0)
         }
+    }
+
+    fun toCustomerDTO(): CustomerDTO {
+        return CustomerDTO(this.name, this.surname, this.tier)
     }
 }
