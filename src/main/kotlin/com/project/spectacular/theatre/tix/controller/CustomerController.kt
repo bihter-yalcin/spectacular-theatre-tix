@@ -21,9 +21,8 @@ class CustomerController {
     @PostMapping
     fun createCustomer(
         @RequestBody
-        name: String,
-        surname: String,
+        customerDTO: CustomerDTO
     ) {
-        return service.createCustomer(name, surname)
+        return service.createCustomer(customerDTO)
     }
 }

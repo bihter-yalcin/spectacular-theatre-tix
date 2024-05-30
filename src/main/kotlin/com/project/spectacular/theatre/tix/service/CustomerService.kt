@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service
 class CustomerService {
     @Autowired
     private lateinit var customerRepository: CustomerRepository
-    fun createCustomer(name: String, surname: String) {
-        customerRepository.save(CustomerEntity.create(name, surname))
+    fun createCustomer(customerDTO: CustomerDTO) {
+        customerRepository.save(CustomerEntity.create(customerDTO))
     }
 
     fun getCustomer(customerId: String): CustomerDTO {

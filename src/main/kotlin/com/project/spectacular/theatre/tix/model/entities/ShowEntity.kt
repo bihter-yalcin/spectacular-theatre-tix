@@ -40,13 +40,13 @@ data class ShowEntity(
     }
 
     companion object {
-        fun create(name: String, writer: String, type: ShowType, totalSeats: Int, availableSeats: Int): ShowEntity {
+        fun create(showDTO: ShowDTO): ShowEntity {
             return ShowEntity(
-                name = name,
-                writer = writer,
-                type = type,
-                totalSeats = totalSeats,
-                availableSeats = availableSeats
+                showDTO.name,
+                showDTO.writer,
+                showDTO.type,
+                showDTO.totalSeats,
+                showDTO.availableSeats
             )
         }
     }

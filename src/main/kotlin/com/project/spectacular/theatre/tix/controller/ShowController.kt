@@ -21,12 +21,9 @@ class ShowController {
     @PostMapping
     fun createShow(
         @RequestBody
-        name: String,
-        writer: String,
-        showType: ShowType,
-        totalSeats: Int,
-        availableSeats: Int
+        showDTO: ShowDTO
+
     ) {
-        return service.createShow(name, writer, showType, totalSeats, availableSeats)
+        return service.createShow(showDTO)
     }
 }

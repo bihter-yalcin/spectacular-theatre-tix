@@ -2,7 +2,6 @@ package com.project.spectacular.theatre.tix.service
 
 import com.project.spectacular.theatre.tix.model.dtos.ShowDTO
 import com.project.spectacular.theatre.tix.model.entities.ShowEntity
-import com.project.spectacular.theatre.tix.model.enums.ShowType
 import com.project.spectacular.theatre.tix.repository.ShowRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -13,8 +12,12 @@ class ShowService {
     @Autowired
     private lateinit var showRepository: ShowRepository
 
-    fun createShow(name: String, writer: String, showType: ShowType, totalSeats: Int, availableSeats: Int) {
-        showRepository.save(ShowEntity.create(name, writer, showType, totalSeats, availableSeats))
+    fun createShow(showDTO: ShowDTO) {
+        showRepository.save(
+            ShowEntity.create(
+                showDTO
+            )
+        )
     }
 
     fun getShow(showId: Int): ShowDTO {

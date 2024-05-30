@@ -29,8 +29,8 @@ data class CustomerEntity(
     }
 
     companion object {
-        fun create(name: String, surname: String): CustomerEntity {
-            return CustomerEntity(UUID.randomUUID().toString(), name, surname, Tier.BRONZE, 0)
+        fun create(customerDTO: CustomerDTO): CustomerEntity {
+            return CustomerEntity(UUID.randomUUID().toString(), customerDTO.name, customerDTO.surname, Tier.BRONZE, 0L)
         }
     }
 
