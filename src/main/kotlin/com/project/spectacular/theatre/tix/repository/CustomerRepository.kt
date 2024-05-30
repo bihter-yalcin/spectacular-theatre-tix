@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository
 import java.util.*
 
 @Repository
-interface CustomerRepository : JpaRepository<CustomerEntity, Int> {
+interface CustomerRepository : JpaRepository<CustomerEntity, String> {
     @Query("SELECT c FROM CustomerEntity c WHERE c.id = :id")
-    fun findById(id: String): Optional<CustomerEntity>
+    override fun findById(id: String): Optional<CustomerEntity>
 }

@@ -8,12 +8,18 @@ import com.project.spectacular.theatre.tix.repository.CustomerRepository
 import com.project.spectacular.theatre.tix.repository.ShowRepository
 import com.project.spectacular.theatre.tix.repository.TicketRepository
 import jakarta.transaction.Transactional
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
 class TicketService {
+    @Autowired
     private lateinit var ticketRepository: TicketRepository
+
+    @Autowired
     private lateinit var showRepository: ShowRepository
+
+    @Autowired
     private lateinit var customerRepository: CustomerRepository
 
     fun getTicket(ticketId: String): TicketDTO {

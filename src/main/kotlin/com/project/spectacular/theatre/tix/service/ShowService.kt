@@ -4,10 +4,13 @@ import com.project.spectacular.theatre.tix.model.dtos.ShowDTO
 import com.project.spectacular.theatre.tix.model.entities.ShowEntity
 import com.project.spectacular.theatre.tix.model.enums.ShowType
 import com.project.spectacular.theatre.tix.repository.ShowRepository
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
 class ShowService {
+
+    @Autowired
     private lateinit var showRepository: ShowRepository
 
     fun createShow(name: String, writer: String, showType: ShowType, totalSeats: Int, availableSeats: Int) {
