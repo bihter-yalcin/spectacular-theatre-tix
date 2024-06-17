@@ -30,7 +30,8 @@ data class CustomerEntity(
 
     companion object {
         fun create(customerDTO: CustomerDTO): CustomerEntity {
-            return CustomerEntity(UUID.randomUUID().toString(), customerDTO.name, customerDTO.surname, Tier.BRONZE, 0L)
+            var tier = if (customerDTO.tier != null) customerDTO.tier else Tier.BRONZE
+            return CustomerEntity(UUID.randomUUID().toString(), customerDTO.name, customerDTO.surname, tier!!, 0L)
         }
     }
 

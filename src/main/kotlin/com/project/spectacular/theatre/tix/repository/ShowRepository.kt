@@ -2,6 +2,7 @@ package com.project.spectacular.theatre.tix.repository
 
 import com.project.spectacular.theatre.tix.model.entities.ShowEntity
 import jakarta.persistence.LockModeType
+import jakarta.transaction.Transactional
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Lock
 import org.springframework.stereotype.Repository

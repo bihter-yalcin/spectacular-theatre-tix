@@ -3,6 +3,7 @@ package com.project.spectacular.theatre.tix.service
 import com.project.spectacular.theatre.tix.model.dtos.ShowDTO
 import com.project.spectacular.theatre.tix.model.entities.ShowEntity
 import com.project.spectacular.theatre.tix.repository.ShowRepository
+import jakarta.transaction.Transactional
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -20,6 +21,7 @@ class ShowService {
         )
     }
 
+    @Transactional
     fun getShow(showId: Int): ShowDTO {
         val show = showRepository.findById(showId)
         if (show.isPresent)
