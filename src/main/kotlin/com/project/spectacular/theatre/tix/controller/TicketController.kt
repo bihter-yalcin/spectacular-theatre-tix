@@ -18,7 +18,7 @@ class TicketController {
     }
 
     @PostMapping("/book")
-    fun bookTicket(@RequestParam showId: Long, @RequestParam customerId: String) {
+    fun bookTicket(@RequestParam showId: Long, @RequestParam customerId: String):String {
         return service.bookTicket(showId, customerId)
     }
 }

@@ -31,7 +31,7 @@ class TicketService {
     }
 
     @Transactional
-    fun bookTicket(showId: Long, customerId: String) {
+    fun bookTicket(showId: Long, customerId: String): String {
         val show = retrieveShow(showId)
         val customer = retrieveCustomer(customerId)
 
@@ -39,6 +39,8 @@ class TicketService {
 
         val ticket = TicketEntity.create(show, customer)
         ticketRepository.save(ticket)
+
+        return ticket.id
 
     }
 
